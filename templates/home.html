@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Boston House Price Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>Predict Median House Value (in $1000s)</h2>
+    <form action="/predict" method="POST">
+        {% for col in ['CRIM','ZN','INDUS','CHAS','NOX','RM','AGE','DIS','RAD','TAX','PTRATIO','B','LSTAT'] %}
+            <label>{{ col }}:</label>
+            <input type="number" step="any" name="{{ col }}" required>
+        {% endfor %}
+        <input type="submit" value="Predict">
+    </form>
+</div>
+</body>
+</html>
